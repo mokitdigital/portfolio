@@ -12,7 +12,7 @@
     <template #modal-header>
       <h3>Módulos</h3>
     </template>
-    <b-row cols="2">
+    <b-row cols="1">
       <b-col v-for="(mod, index) in modulos" :key="index">
         <b-card
           :title="mod.title"
