@@ -131,6 +131,7 @@
               type="number"
               v-model="mensal"
               class="text-right"
+              readonly
             ></b-form-input>
           </b-input-group>
         </b-form-group>
@@ -149,6 +150,7 @@
               type="number"
               v-model="anual"
               class="text-right"
+              readonly
             ></b-form-input>
           </b-input-group>
         </b-form-group>
