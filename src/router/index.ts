@@ -1,22 +1,56 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/index.vue'),
+    children: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('../views/pages/dashboard/index.vue')
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    redirect: '/clientes',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/index.vue'),
+    children: [
+      {
+        path: '/clientes',
+        name: 'Clientes',
+        component: () => import('../views/pages/clientes/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/',
+    redirect: '/templates',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/index.vue'),
+    children: [
+      {
+        path: '/templates',
+        name: 'Templates',
+        component: () => import('../views/pages/templates/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/',
+    redirect: '/plus',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/index.vue'),
+    children: [
+      {
+        path: '/plus',
+        name: 'Plus',
+        component: () => import('../views/pages/plus/index.vue')
+      }
+    ]
   }
 ]
 
